@@ -20,7 +20,7 @@ RUN /etc/init.d/mysql start && \
 
 # zabbix conf
 COPY ./zabbix_server.conf /etc/zabbix/zabbix_server.conf
-RUN sed -i '19s|# php_value.*|php_value date.timezonoe Asia/Shanghai|' /etc/apache2/conf-enabled/zabbix.conf
+RUN sed -i '19s|# php_value.*|php_value date.timezone Asia/Shanghai|' /etc/apache2/conf-enabled/zabbix.conf
 
 # supervisor
 COPY ./supervisord.conf /etc/supervisor/supervisord.conf
