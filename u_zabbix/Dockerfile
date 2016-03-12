@@ -1,11 +1,9 @@
-FROM ubuntu:14.04-update
+FROM ubuntu:14.04
 MAINTAINER lyx
 
 ENV work /work
 WORKDIR ${work}
 ADD ./zabbix-release_3.0-1+trusty_all.deb ${work}
-RUN pwd
-RUN ls
 RUN dpkg -i zabbix-release_3.0-1+trusty_all.deb
 RUN apt-get update
 RUN apt-get install -y zabbix-server-mysql zabbix-frontend-php
@@ -22,6 +20,7 @@ RUN /etc/init.d/mysql start && \
 
 # zabbix conf
 COPY ./zabbix_server.conf /etc/zabbix/zabbix_server.conf
+RUN sed -i '19s|# php_value.*|php_value date.timezonoe Asia/Shanghai|' /etc/apache2/conf-enabled/zabbix.conf
 
 # supervisor
 COPY ./supervisord.conf /etc/supervisor/supervisord.conf
