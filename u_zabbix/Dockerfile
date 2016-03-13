@@ -23,6 +23,11 @@ COPY ./zabbix_server.conf /etc/zabbix/zabbix_server.conf
 RUN sed -i '19s|# php_value.*|php_value date.timezone Asia/Shanghai|' /etc/apache2/conf-enabled/zabbix.conf
 
 # supervisor
-COPY ./supervisord.conf /etc/supervisor/supervisord.conf
+ADD ./dfg.sh /usr/local/bin/
+ADD ./supervisor-all.conf /etc/supervisor/conf.d/
+
+# Declare
+EXPOSE 80
+EXPOSE 10051
 
 CMD ["/usr/bin/supervisord"]
