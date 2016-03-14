@@ -10,6 +10,7 @@ RUN apt-get update
 RUN apt-get install -y rabbitmq-server
 
 # rabbitmq-server config
+RUN rabbitmq-plugins enable rabbitmq_management
 
 # Declare
 EXPOSE 15672
