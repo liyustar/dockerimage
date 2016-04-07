@@ -1,9 +1,9 @@
 FROM liyustar/sshd
 MAINTAINER liyustar <liyustar@gmail.com>
 
-RUN echo "deb http://www.rabbitmq.com/debian/ stable main" >> /etc/apt/sources.list
-ADD ./rabbitmq-signing-key-public.asc ${work}
-RUN apt-key add rabbitmq-signing-key-public.asc
+# RUN echo 'deb http://www.rabbitmq.com/debian/ stable main' | tee /etc/apt/sources.list.d/rabbitmq.list
+# ADD ./rabbitmq-signing-key-public.asc ${work}
+# RUN apt-key add rabbitmq-signing-key-public.asc
 
 RUN apt-get update
 RUN apt-get install -y rabbitmq-server
