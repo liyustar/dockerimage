@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER liyustar liyustar@gmail.com
+MAINTAINER liyustar <liyustar@gmail.com>
 
 RUN apt-get update
 RUN apt-get install -y openssh-server
