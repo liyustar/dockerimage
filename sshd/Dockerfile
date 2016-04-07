@@ -1,8 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER lyx
-
-ENV work /work
-WORKDIR ${work}
+MAINTAINER liyustar liyustar@gmail.com
 
 RUN apt-get update
 RUN apt-get install -y openssh-server
