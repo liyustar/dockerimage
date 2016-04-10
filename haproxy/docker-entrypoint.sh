@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+# run sshd
+/usr/sbin/sshd
+
 # first arg is `-f` or `--some-option`
 if [ "${1#-}" != "$1" ]; then
 	set -- haproxy "$@"
