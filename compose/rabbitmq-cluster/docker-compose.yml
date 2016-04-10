@@ -32,3 +32,15 @@ rabbit_c:
   ports:
    - "10024:22"
    - "5674:5672"
+   - "15674:15672"
+
+haproxy:
+  image: haproxy
+  hostname: haproxy
+  links:
+   - rabbit_a
+   - rabbit_b
+   - rabbit_c
+  ports:
+   - "10025:22"
+   - "5675:5672"
