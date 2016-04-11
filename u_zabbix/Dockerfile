@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER lyx
+MAINTAINER liyustar <liyustar@gmail.com>
 
 ENV work /work
 WORKDIR ${work}
@@ -16,7 +16,7 @@ RUN /etc/init.d/mysql start && \
   mysql -e "grant all privileges on zabbix.* to 'zabbix'@'localhost' identified by 'zabbix';" && \
   cd /usr/share/doc/zabbix-server-mysql && \
   zcat create.sql.gz | mysql -uroot zabbix
-  
+
 
 # zabbix conf
 COPY ./zabbix_server.conf /etc/zabbix/zabbix_server.conf
