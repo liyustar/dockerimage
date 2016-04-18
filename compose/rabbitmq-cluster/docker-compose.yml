@@ -35,7 +35,7 @@ rabbit_c:
    - "15674:15672"
 
 haproxy:
-  image: haproxy
+  image: liyustar/haproxy
   hostname: haproxy
   links:
    - rabbit_a
@@ -44,3 +44,4 @@ haproxy:
   ports:
    - "10025:22"
    - "5675:5672"
+   - "8888:8888"
